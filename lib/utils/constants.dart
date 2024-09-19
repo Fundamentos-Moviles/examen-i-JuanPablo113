@@ -11,18 +11,18 @@ const borde = Colors.grey;
 int cont = 0;
 const List listaExamen =
 [
-  '1 # 12 # titulo # descripción # num de estrellas en amarillo',
-  '2 # 13 # titulo # descripción # num de estrellas en amarillo',
-  '3 # 14 # titulo # descripción # num de estrellas en amarillo',
-  '4 # 15 # titulo # descripción # num de estrellas en amarillo',
-  '5 # 16 # titulo # descripción # num de estrellas en amarillo',
-  '6 # 17 # titulo # descripción # num de estrellas en amarillo',
-  '7 # 18 # titulo # descripción # num de estrellas en amarillo',
-  '8 # 19 # titulo # descripción # num de estrellas en amarillo',
-  '9 # 20 # titulo # descripción # num de estrellas en amarillo',
-  '10 # 21 # titulo # descripción # num de estrellas en amarillo',
-  '11 # 22 # titulo # descripción # num de estrellas en amarillo',
-  '12 # 23 # titulo # descripción # num de estrellas en amarillo',
+  '1 # 12 # titulo # descripción # 5',
+  '2 # 13 # titulo # descripción # 5',
+  '3 # 14 # titulo # descripción # 5',
+  '4 # 15 # titulo # descripción # 5',
+  '5 # 16 # titulo # descripción # 5',
+  '6 # 17 # titulo # descripción # 5',
+  '7 # 18 # titulo # descripción # 5',
+  '8 # 19 # titulo # descripción # 5',
+  '9 # 20 # titulo # descripción # 5',
+  '10 # 21 # titulo # descripción # 5',
+  '11 # 22 # titulo # descripción # 5',
+  '12 # 23 # titulo # descripción # 5',
 ];
 
 ///‘1 # 10 # Comprar pastel # Pasar a la pastelería para comprar un pastel de chocolate # 2’,

@@ -57,8 +57,10 @@ class _HomeState extends State<Home> {
 
                           return int.parse(datos[1])%2 == 0 ? cardbot(
                             orden: datos[1],
+                            titulo: datos[2],
+                            descrip: datos[3],
                             id: int.parse(datos[0]),
-                          ):card(orden: datos[1]);
+                          ):card(orden: datos[1], titulo: datos[2],descrip: datos[3],);
                         }
                     ),
                   )
@@ -88,11 +90,13 @@ class _HomeState extends State<Home> {
 
 class cardbot extends StatelessWidget {
   final String orden;
+  final String titulo;
+  final String descrip;
   final List lista = con.listaExamen;
   final int id;
 
   const cardbot({
-    super.key, required this.orden, required this.id,
+    super.key, required this.orden, required this.id, required this.titulo, required this.descrip,
   });
 
   @override
@@ -101,26 +105,54 @@ class cardbot extends StatelessWidget {
       child: Row(
         children: [
           Expanded(child: Container(
-              height: 80,
+              height: 120,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 color: con.logcon,
                 borderRadius: BorderRadius.circular(15),
               ),
               child:
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,  // Alinea los hijos en los extremos
-                  children:[
-                    Text(
-                      orden,
-                      style: TextStyle(fontSize: 18),
-                    ),
-                    Icon(Icons.energy_savings_leaf_outlined, size: 24),
-                  ]// Icono a la derecha
+              Column(
+                children: [
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,  // Alinea los hijos en los extremos
+                      children:[
+                        Text(
+                          orden,
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        Icon(Icons.energy_savings_leaf_outlined, size: 24),
+                      ]// Icono a la derecha
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        titulo,
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        descrip,
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Icon(Icons.star),
+                      )
+                    ],
+                  ),
+                ],
               )
           ),),
           Expanded(child: Container(
-              height: 80,
+              height: 100,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 color: con.logcon,
@@ -130,7 +162,7 @@ class cardbot extends StatelessWidget {
                   Column(
                     children: [
                       Align(alignment: Alignment.center,
-                        child: Row(// Alinea los hijos en los extremos
+                        child: Row(
                           children:[
                             ElevatedButton(
                                 style: ElevatedButton.styleFrom(
@@ -157,7 +189,7 @@ class cardbot extends StatelessWidget {
                       ),
                       ),
                       Align(alignment: Alignment.center,
-                        child: Row(// Alinea los hijos en los extremos
+                        child: Row(
                             children:[
                               ElevatedButton(
                                   style: ElevatedButton.styleFrom(
@@ -196,9 +228,11 @@ class cardbot extends StatelessWidget {
 
 class card extends StatelessWidget {
   final String orden;
+  final String titulo;
+  final String descrip;
 
   const card({
-    super.key, required this.orden,
+    super.key, required this.orden, required this.titulo, required this.descrip,
   });
 
   @override
@@ -207,23 +241,51 @@ class card extends StatelessWidget {
       child: Row(
         children: [
           Expanded(child: Container(
-              height: 80,
+              height: 120,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 color: con.logcon,
                 borderRadius: BorderRadius.circular(15),
               ),
               child:
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,  // Alinea los hijos en los extremos
-                  children:[
-                    Text(
-                      orden,
-                      style: TextStyle(fontSize: 18),
-                    ),
-                    Icon(Icons.energy_savings_leaf_outlined, size: 24),
-                  ]// Icono a la derecha
-              )
+                  Column(
+                    children: [
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,  // Alinea los hijos en los extremos
+                          children:[
+                            Text(
+                              orden,
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            Icon(Icons.energy_savings_leaf_outlined, size: 24),
+                          ]// Icono a la derecha
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            titulo,
+                            style: TextStyle(fontSize: 18),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            descrip,
+                            style: TextStyle(fontSize: 18),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Align(
+                            alignment: Alignment.bottomLeft,
+                            child: Icon(Icons.star),
+                          )
+                        ],
+                      ),
+                    ],
+                  )
           ),),
         ],
       ),

@@ -28,10 +28,7 @@ class _more_infoState extends State<more_info> {
                       fixedSize: Size(250, 40),
                     ),
                     onPressed:(){
-                      con.cont == 0 ? newb():
-                      con.cont < 12 ? nonewb(color: con.cont%2 == 0 ? con.fondo:con.fondo2):newb();
                       con.cont == 12 ? con.cont = 0: con.cont++;
-
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -43,7 +40,16 @@ class _more_infoState extends State<more_info> {
                     ),
                   ),
                 ),
+              ),
+              SingleChildScrollView(
+                child:
+                Column(
+                  children: [
+                    Expanded(child: con.cont == 1 ? newb():nonewb(color: con.cont%2 == 0 ? con.fondo4:con.fondo2),),
+                  ],
+                )
               )
+
             ],
           )
         ],
@@ -81,16 +87,11 @@ class nonewb extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(child:
-        Container(
+    return Container(
           height: 100,
           width: MediaQuery.of(context).size.width,
           color: color,
-        ),
-        )
-      ],
-    );
+        );
+
   }
 }
