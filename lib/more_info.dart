@@ -16,27 +16,81 @@ class _more_infoState extends State<more_info> {
         children: [
           Column(
             children: [
-              Padding(padding: EdgeInsets.only(left: 30.0, right: 30.0),
-                child:ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: con.botones,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.0),
+              Align(alignment: Alignment.center,
+                child:
+                Padding(padding: EdgeInsets.only(left: 30.0, right: 30.0),
+                  child:ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: con.botones,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      fixedSize: Size(250, 40),
                     ),
-                    fixedSize: Size(250, 40),
-                  ),
-                  onPressed:(){
+                    onPressed:(){
+                      con.cont == 0 ? newb():
+                      con.cont < 12 ? nonewb(color: con.cont%2 == 0 ? con.fondo:con.fondo2):newb();
+                      con.cont == 12 ? con.cont = 0: con.cont++;
 
-                  },
-                  child: SingleChildScrollView(
-
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Iniciar Sesión",
+                            style: TextStyle(color: con.logcon,fontSize: 21.0, fontWeight: FontWeight.w400)
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
+              )
             ],
           )
         ],
       ),
+    );
+  }
+}
+
+class newb extends StatelessWidget {
+  const newb({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(child:
+          Container(
+            height: 100,
+            width: MediaQuery.of(context).size.width,
+            color: con.fondo,
+          ),
+        )
+      ],
+    );
+  }
+}
+
+class nonewb extends StatelessWidget {
+  final Color color;
+  const nonewb({
+    super.key, required this.color,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Expanded(child:
+        Container(
+          height: 100,
+          width: MediaQuery.of(context).size.width,
+          color: color,
+        ),
+        )
+      ],
     );
   }
 }

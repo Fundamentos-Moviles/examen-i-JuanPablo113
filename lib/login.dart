@@ -251,7 +251,7 @@ class _LoginState extends State<Login> {
       //Un mensaje si es valido o incorrecto
       if (usuario.text == "test" && pass.text == "FDM1") {
         print("Usuario valido");
-        showSB("Segunda Vista: Juan Pablo Penilla Padrón", 30);
+        showSB("Segunda Vista: Juan Pablo Penilla Padrón", 2);
         //Navigator.of(context).push();
         Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
       }else{

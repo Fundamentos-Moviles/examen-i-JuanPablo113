@@ -8,6 +8,7 @@ const botones = Color(0xffdc7500);
 const efectos = Color(0xff919b02);
 const logcon = Color(0xFFFFFFFFF);
 const borde = Colors.grey;
+int cont = 0;
 const List listaExamen =
 [
   '1 # 12 # titulo # descripción # num de estrellas en amarillo',
